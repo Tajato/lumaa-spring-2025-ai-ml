@@ -1,91 +1,46 @@
 # AI/Machine Learning Intern Challenge: Simple Content-Based Recommendation
 
-**Deadline**: Sunday, Feb 23th 11:59 pm PST
-
+Developer: Tahj Gordon
 ---
 
 ## Overview
 
-Build a **content-based recommendation system** that, given a **short text description** of a user’s preferences, suggests **similar items** (e.g., movies) from a small dataset. This challenge should take about **3 hours**, so keep your solution **simple** yet **functional**.
+This project showcases a simple movie recommendation system using **TF-IDF** and **cosine similarity.** Below you will be instructed on how to run the Jupyter Notebook and test the recommendation system on your own.
 
-### Example Use Case
+### Dataset
 
-- The user inputs:  
-  *"I love thrilling action movies set in space, with a comedic twist."*  
-- Your system processes this description (query) and compares it to a dataset of items (e.g., movies with their plot summaries or keywords).  
-- You then return the **top 3–5 “closest” matches** to the user.
+The original dataset was retrieved from Kaggle. You can open it up from the directory or visit this link to view it on Kaggle - https://www.kaggle.com/datasets/rajugc/imdb-movies-dataset-based-on-genre?resource=download .. Be aware that the dataset zip file contains multiple files and I opted to use the action.csv file.
+
 
 ---
 
-## Requirements
+## Setting up my project
 
-1. **Dataset**  
-   - Use a **small** public dataset of items (e.g., a list of movies with plot summaries, or other textual descriptions).  
-   - Make sure the dataset is easy to handle (maybe 100–500 rows) so the solution remains quick to implement and run.  
-   - Include the dataset in your forked repository *or* provide instructions/link on how to download it.  
+1. **Download/Clone my repository**  
+   Clone or download my repository. It will contain all the files you need. 
 
-2. **Approach**  
-   - **Content-Based**: At a minimum, use text similarity to recommend items.  
-     - For instance, you can transform both the user’s text input and each item’s description into TF-IDF vectors and compute **cosine similarity**.  
-   - Return the **top N** similar items (e.g., top 5).
+2. **Create a virtual environment & activate environment (if you don't already have Jupyter Notebooks or Anaconda Navigator)**
+  The follow commands might vary depending on which machine or type of command prompt you are using. However, in Git Bash, type:
+ - py -m venv venv 
+ - source venv/Scripts/activate
+   
 
-3. **Code Organization**  
-   - You may use a **Jupyter Notebook** or **Python scripts**.  
-   - Keep it **readable** and **modular** (e.g., one section for loading data, one for building vectors, one for computing similarity, etc.).  
-   - Briefly comment or docstring your key functions/sections.
+3. **Install requirements**  
+   Run the following command: pip install -r requirements.txt
 
-4. **Output**  
-   - When given an input description (e.g., `"I like action movies set in space"`), your system should print or return a list of recommended items (e.g., 3–5 titles).  
-   - Include the similarity score or rank if you’d like.
+4. **Run jupyter notebook**  
+   Type the following command to run and open my notebook in your browser: jupyter notebook recommender.ipynb
 
-5. **Summary & Instructions**  
-   - A short `README.md` that includes:
-     - **Dataset**: Where it’s from, any steps to load it.  
-     - **Setup**: Python version, virtual environment instructions, and how to install dependencies (`pip install -r requirements.txt`).  
-     - **Running**: How to run your code (e.g., `python recommend.py "Some user description"` or open your notebook in Jupyter).  
-     - **Results**: A brief example of your system’s output for a sample query.
+## The Solution
 
----
-
-## Deliverables
-
-1. **Fork the Public Repository**  
-   - **Fork** this repo into your own GitHub account.
-
-2. **Implement Your Solution**  
-   - Load and preprocess your dataset (e.g., read CSV, handle text columns).  
-   - Convert text data to vectors (e.g., TF-IDF).  
-   - Implement a function to compute similarity between the user’s query and each item’s description.  
-   - Return the top matches.
-   - Salary expectation per month (Mandatory)
-
-3. **Short Video Demo**  
-   - In a `.md` file (e.g., `demo.md`) within your fork, paste a link to a **brief screen recording** (video link).  
-   - Demonstrate:
-     - How you run the recommendation code.  
-     - A sample query and the results.
-
-4. **Deadline**  
-   - Submit your fork by **Sunday, Feb 23th 11:59 pm PST**.
-
-> **Note**: This should be doable within ~3 hours. Keep it **straightforward**—you do **not** need advanced neural networks or complex pipelines. A simple TF-IDF + cosine similarity approach is sufficient.
-
----
-
-## Evaluation Criteria
-
-1. **Functionality**  
-   - Does your code run without errors?  
-   - When given an input query, does it successfully output relevant items?
-
-2. **Code Quality**  
-   - Clear, commented code (where it counts).  
-   - Logical steps (load data → transform → recommend).
-
-3. **Clarity**  
-   - Is your `README.md` straightforward about setup, how to run, and what to expect?
-
-4. **ML/Recommendation Understanding**  
-   - Basic implementation of a content-based recommendation approach (vectorization, similarity measure).
-
-**We look forward to seeing your solution!** Good luck!
+At the end of the notebook, under section "test the recommendation system here", you will see a function, run the cell with the function and you will be prompted to enter a short movie description such as "I love comedy romance"... Then, you will run the cell below that and you will see an output in the format of: Top 5 movie recommendations based on your description are: Title1, Title 2, Title 3, Title 4, Title 5. I recommend when you open the notebook, just click run in the navbar at the top and click run all cells, then scroll to the button and type into the box that is waiting for your input, press enter, run the cell below and you will see the recommendations printed onto the screen. **Don't forget to press enter after typing in your input**.
+# Example Output:
+- Enter a short movie description
+ I love comedy
+- Top 5 movie recommendations based on your description are:
+ 106    Pirates of the Caribbean: The Curse of the Bla...
+322                                           Underworld
+662                           The Twilight Saga: Eclipse
+67                                      The Mummy (1999)
+321                                       Predestination
+Name: movie_name, dtype: object
